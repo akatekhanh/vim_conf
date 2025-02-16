@@ -1,5 +1,0 @@
-## NerdTree Configuration
-```bash
-
-
-```

@@ -1,0 +1,40 @@
+[experimental]
+
+[ai]
+rules = ""
+
+[server]
+browser = "default"
+follow_symlink = false
+
+[save]
+autosave_delay = 1000
+format_on_save = false
+autosave = "after_delay"
+
+[keymap]
+preset = "default"
+
+[keymap.overrides]
+
+[display]
+code_editor_font_size = 14
+cell_output = "above"
+dataframes = "rich"
+default_width = "medium"
+theme = "light"
+
+[runtime]
+auto_reload = "off"
+auto_instantiate = true
+on_cell_change = "autorun"
+
+[package_management]
+manager = "pip"
+
+[formatting]
+line_length = 79
+
+[completion]
+activate_on_typing = true
+copilot = false
