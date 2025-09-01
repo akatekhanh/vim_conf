@@ -26,7 +26,7 @@ return {
    background = backdrops:initial_options(false), -- set to true if you want wezterm to start on focus mode
 
    -- scrollbar
-   enable_scroll_bar = true,
+   enable_scroll_bar = false,
 
    -- tab bar
    enable_tab_bar = true,
@@ -38,15 +38,19 @@ return {
 
    -- window
    window_padding = {
-      left = 0,
-      right = 0,
-      top = 10,
-      bottom = 7.5,
+      left = 50,
+      right = 50,
+      top = 50,
+      bottom = 50,
    },
    initial_rows = 35,
    initial_cols = 100,
    adjust_window_size_when_changing_font_size = false,
    window_close_confirmation = 'NeverPrompt',
+
+   -- Prevent full screen by default
+   window_decorations = 'RESIZE',
+   window_background_opacity = 0.8,
    window_frame = {
       active_titlebar_bg = '#090909',
       -- font = fonts.font,

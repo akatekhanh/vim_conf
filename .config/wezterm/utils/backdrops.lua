@@ -59,6 +59,15 @@ end
 ---   initial load of the Terminal config.
 function BackDrops:set_images()
    self.images = wezterm.glob(self.images_dir .. GLOB_PATTERN)
+
+   -- Find totoro.jpeg and set it as default
+   for idx, file in ipairs(self.images) do
+      if file:match('totoro%.jpeg$') or file:match('totoro%.jpg$') then
+         self.current_idx = idx
+         break
+      end
+   end
+
    return self
 end
 
@@ -78,14 +87,12 @@ function BackDrops:_create_opts()
       {
          source = { File = self.images[self.current_idx] },
          horizontal_align = 'Center',
-      },
-      {
-         source = { Color = colors.background },
-         height = '120%',
-         width = '120%',
-         vertical_offset = '-10%',
-         horizontal_offset = '-10%',
-         opacity = 0.96,
+         vertical_align = 'Middle',
+         width = '100%',
+         height = '100%',
+         repeat_x = 'NoRepeat',
+         repeat_y = 'NoRepeat',
+         opacity = 0.3,
       },
    }
 end
@@ -150,8 +157,6 @@ function BackDrops:_set_focus_opt(window)
    }
    window:set_config_overrides(opts)
 end
-
-
 
 ---Convert the `files` array to a table of `InputSelector` choices
 ---see: https://wezfurlong.org/wezterm/config/lua/keyassignment/InputSelector.html
